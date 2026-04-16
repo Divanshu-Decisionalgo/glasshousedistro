@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Product Catalog | Glass House Distro</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="data/products.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#a0b4c4",
+                        "surface-variant": "#1a2438",
+                        "secondary": "#88b4cc",
+                        "background": "#0a0e1a",
+                        "secondary-container": "#1a3a4e",
+                        "primary-fixed": "#c8eaff",
+                        "on-primary": "#001f2e",
+                        "on-surface": "#e0e8f0",
+                        "surface-tint": "#7dd3fc",
+                        "tertiary": "#c8a0f0",
+                        "on-primary-fixed": "#001f2e",
+                        "inverse-on-surface": "#0a0e1a",
+                        "tertiary-container": "#3d2060",
+                        "surface-container-high": "#1a2438",
+                        "on-secondary": "#001f2e",
+                        "on-primary-fixed-variant": "#004d73",
+                        "surface": "#0f1524",
+                        "surface-dim": "#0f1524",
+                        "tertiary-fixed-dim": "#c8a0f0",
+                        "surface-container": "#141c2e",
+                        "on-tertiary": "#1a002e",
+                        "surface-container-highest": "#202c42",
+                        "on-tertiary-fixed-variant": "#4d2a73",
+                        "secondary-fixed-dim": "#88b4cc",
+                        "inverse-surface": "#e0e8f0",
+                        "error": "#ff6b6b",
+                        "on-error": "#1a0000",
+                        "primary-container": "#0e4d6e",
+                        "surface-container-lowest": "#0a0e1a",
+                        "error-container": "#3d1414",
+                        "secondary-fixed": "#c0d8e8",
+                        "on-background": "#e0e8f0",
+                        "surface-bright": "#1a2438",
+                        "surface-container-low": "#111828",
+                        "primary-fixed-dim": "#7dd3fc",
+                        "on-tertiary-container": "#e8d0ff",
+                        "on-secondary-fixed-variant": "#2a4a5e",
+                        "inverse-primary": "#0a4c6e",
+                        "on-error-container": "#ffb3b3",
+                        "outline-variant": "#2a3a48",
+                        "outline": "#4a6070",
+                        "on-primary-container": "#c8eaff",
+                        "on-secondary-fixed": "#0d1f2b",
+                        "on-secondary-container": "#c0d8e8",
+                        "tertiary-fixed": "#e8d0ff",
+                        "primary": "#7dd3fc",
+                        "on-tertiary-fixed": "#1a002e"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(15, 21, 36, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(125, 211, 252, 0.1);
+        }
+        .glass-panel-elevated {
+            background: rgba(15, 21, 36, 0.75);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(125, 211, 252, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+        .product-card:hover {
+            border-color: rgba(125, 211, 252, 0.3);
+        }
+        .category-chip.active {
+            background: rgba(125, 211, 252, 0.15);
+            border-color: rgba(125, 211, 252, 0.5);
+            color: #7dd3fc;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary/30" style="background-color:#0a0e1a;color:#e0e8f0;font-family:'Inter',sans-serif;">
+
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full bg-slate-950/60 backdrop-blur-xl border-b border-sky-400/10 shadow-[0_0_30px_rgba(125,211,252,0.05)] z-50">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+            <a href="index.html" class="text-2xl font-semibold tracking-tighter text-sky-300 font-headline">Glass House Distro</a>
+            <div class="hidden md:flex items-center space-x-8 font-inter tracking-tight">
+                <a class="text-sky-300 border-b-2 border-sky-300 pb-1 cursor-pointer active:scale-95 transition-colors duration-300" href="products.html">Wholesale</a>
+                <a class="text-slate-400 hover:text-sky-200 transition-colors duration-300 cursor-pointer active:scale-95" href="index.html#new-arrivals">New Arrivals</a>
+                <a class="text-slate-400 hover:text-sky-200 transition-colors duration-300 cursor-pointer active:scale-95" href="index.html#best-sellers">Best Sellers</a>
+                <a class="text-slate-400 hover:text-sky-200 transition-colors duration-300 cursor-pointer active:scale-95" href="index.html#bulk-orders">Bulk Orders</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-slate-400 hover:text-sky-200 font-medium px-4 py-2 transition-all">Sign In</button>
+                <button class="bg-primary/10 border border-primary/20 text-primary px-6 py-2 rounded-lg font-semibold hover:bg-primary/20 transition-all active:scale-95">Open Account</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-8 max-w-screen-2xl mx-auto flex gap-8">
+
+        <!-- Sidebar Filters -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="glass-panel rounded-xl p-6 sticky top-28 space-y-8">
+                <div>
+                    <h3 class="text-primary font-semibold mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">filter_list</span>
+                        Filters
+                    </h3>
+
+                    <!-- Category Filter -->
+                    <div class="space-y-3 mb-8">
+                        <label class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Category</label>
+                        <div id="category-filters" class="space-y-2">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="space-y-3">
+                        <label class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Search</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+                            <input
+                                id="sidebar-search"
+                                class="w-full bg-surface-container border border-outline-variant rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none"
+                                placeholder="Search products..."
+                                type="text" />
+                        </div>
+                    </div>
+                </div>
+
+                <button id="clear-filters-btn"
+                    class="w-full bg-surface-container-highest py-3 rounded-xl text-sm font-medium hover:bg-surface-variant transition-all border border-outline-variant/50">
+                    Clear All Filters
+                </button>
+            </div>
+        </aside>
+
+        <!-- Product Grid Content -->
+        <section class="flex-1">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tight text-on-surface">Premium Wholesale Catalog</h1>
+                    <p id="product-count" class="text-on-surface-variant">Loading products...</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+                        <input
+                            id="catalog-search"
+                            class="bg-surface-container border border-outline-variant rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none w-64"
+                            placeholder="Search catalog..."
+                            type="text" />
+                    </div>
+                    <select id="sort-select"
+                        class="bg-surface-container border border-outline-variant rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none">
+                        <option value="default">Sort: Default</option>
+                        <option value="name-asc">Sort: A → Z</option>
+                        <option value="name-desc">Sort: Z → A</option>
+                        <option value="new-first">New Arrivals First</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Mobile category chips -->
+            <div class="flex flex-wrap gap-2 mb-6 lg:hidden" id="mobile-category-chips">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Empty state -->
+            <div id="empty-state" class="hidden text-center py-24">
+                <span class="material-symbols-outlined text-6xl text-on-surface-variant mb-4 block">search_off</span>
+                <h3 class="text-xl font-semibold text-on-surface mb-2">No products found</h3>
+                <p class="text-on-surface-variant">Try adjusting your search or filters.</p>
+                <button id="reset-from-empty" class="mt-6 px-6 py-3 bg-primary/10 border border-primary/20 text-primary rounded-xl font-semibold hover:bg-primary/20 transition-all">
+                    Reset Filters
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 w-full py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center px-12 w-full max-w-screen-2xl mx-auto font-inter text-xs text-slate-500">
+            <div class="mb-8 md:mb-0">
+                <a href="index.html" class="text-lg font-bold text-slate-300 mb-2 block">Glass House Distro</a>
+                <p>© 2025 Glass House Distro. Wholesale Only.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8">
+                <a class="hover:text-sky-300 transition-colors" href="terms.html">Terms of Service</a>
+                <a class="hover:text-sky-300 transition-colors" href="shipping.html">Shipping Policy</a>
+                <a class="hover:text-sky-300 transition-colors" href="compliance.html">Compliance</a>
+                <a class="hover:text-sky-300 transition-colors" href="contact.html">Contact Us</a>
+            </div>
+            <div class="mt-8 md:mt-0 flex items-center gap-4">
+                <a href="https://glasshousedistro.com/" target="_blank" class="w-8 h-8 rounded-full glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer transition-all">
+                    <span class="material-symbols-outlined text-sm">language</span>
+                </a>
+                <a href="mailto:glasshousedistributors@gmail.com" class="w-8 h-8 rounded-full glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer transition-all">
+                    <span class="material-symbols-outlined text-sm">mail</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAB -->
+    <div class="fixed bottom-8 right-8 z-40">
+        <button class="flex items-center gap-3 bg-primary text-on-primary px-6 py-4 rounded-2xl font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all">
+            <span class="material-symbols-outlined">shopping_cart_checkout</span>
+            <span>Place Bulk Order</span>
+        </button>
+    </div>
+
+    <script>
+    (function () {
+        // ── State ──────────────────────────────────────────────────────────────
+        let activeCategories = new Set();
+        let searchQuery = '';
+        let sortMode = 'default';
+
+        // ── Helpers ───────────────────────────────────────────────────────────
+        function getCategories() {
+            const cats = [...new Set(window.PRODUCTS.map(p => p.category))].sort();
+            return cats;
+        }
+
+        function filterAndSort(products) {
+            let result = [...products];
+
+            if (activeCategories.size > 0) {
+                result = result.filter(p => activeCategories.has(p.category));
+            }
+
+            if (searchQuery) {
+                const q = searchQuery.toLowerCase();
+                result = result.filter(p =>
+                    p.name.toLowerCase().includes(q) ||
+                    p.category.toLowerCase().includes(q)
+                );
+            }
+
+            if (sortMode === 'name-asc') {
+                result.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortMode === 'name-desc') {
+                result.sort((a, b) => b.name.localeCompare(a.name));
+            } else if (sortMode === 'new-first') {
+                result.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+            }
+
+            return result;
+        }
+
+        function renderCard(product) {
+            const newBadge = product.isNew
+                ? `<div class="absolute top-4 left-4">
+                     <span class="bg-primary/20 backdrop-blur-md text-primary px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-primary/30">New Arrival</span>
+                   </div>`
+                : '';
+
+            return `
+                <a href="products/${product.slug}.html"
+                   class="product-card glass-panel rounded-2xl overflow-hidden flex flex-col group cursor-pointer border border-primary/10 transition-all duration-300 block"
+                   style="text-decoration:none;">
+                    <div class="h-72 overflow-hidden relative" style="background:#0f1524;">
+                        <img src="${product.image}"
+                             alt="${product.name}"
+                             class="product-image w-full h-full object-cover transition-transform duration-700"
+                             loading="lazy"
+                             onerror="this.style.opacity='0.3'" />
+                        ${newBadge}
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="mb-4">
+                            <p class="text-xs font-medium tracking-wide mb-1 uppercase" style="color:#88b4cc;">${product.category}</p>
+                            <h3 class="text-base font-semibold leading-snug" style="color:#e0e8f0;">${product.name}</h3>
+                        </div>
+                        <div class="mt-auto pt-4" style="border-top:1px solid rgba(125,211,252,0.05);">
+                            <p class="text-sm font-medium italic" style="color:#c8eaff;">Sign in for Wholesale Pricing</p>
+                        </div>
+                    </div>
+                </a>`;
+        }
+
+        function renderGrid() {
+            const filtered = filterAndSort(window.PRODUCTS);
+            const grid = document.getElementById('product-grid');
+            const emptyState = document.getElementById('empty-state');
+            const countEl = document.getElementById('product-count');
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                grid.innerHTML = filtered.map(renderCard).join('');
+            }
+
+            const total = window.PRODUCTS.length;
+            countEl.textContent = filtered.length === total
+                ? `Showing all ${total} products available for bulk order`
+                : `Showing ${filtered.length} of ${total} products`;
+        }
+
+        // ── Category Filters ──────────────────────────────────────────────────
+        function renderCategoryFilters() {
+            const cats = getCategories();
+            const container = document.getElementById('category-filters');
+            const mobileContainer = document.getElementById('mobile-category-chips');
+
+            // Sidebar checkboxes
+            const allLabel = document.createElement('label');
+            allLabel.className = 'flex items-center gap-3 cursor-pointer group';
+            allLabel.innerHTML = `
+                <input type="checkbox" id="cat-all" class="rounded border-outline bg-surface-container text-primary focus:ring-primary/20" checked />
+                <span class="text-sm group-hover:text-primary transition-colors" style="color:#e0e8f0;">All Categories</span>`;
+            container.appendChild(allLabel);
+
+            cats.forEach(cat => {
+                const label = document.createElement('label');
+                label.className = 'flex items-center gap-3 cursor-pointer group';
+                label.innerHTML = `
+                    <input type="checkbox" data-cat="${cat}" class="cat-checkbox rounded border-outline bg-surface-container text-primary focus:ring-primary/20" />
+                    <span class="text-sm group-hover:text-primary transition-colors" style="color:#e0e8f0;">${cat}</span>`;
+                container.appendChild(label);
+            });
+
+            // Mobile chips
+            const allChip = createChip('All', true, () => {
+                activeCategories.clear();
+                syncChips();
+                renderGrid();
+            });
+            mobileContainer.appendChild(allChip);
+
+            cats.forEach(cat => {
+                const chip = createChip(cat, false, () => {
+                    if (activeCategories.has(cat)) {
+                        activeCategories.delete(cat);
+                    } else {
+                        activeCategories.add(cat);
+                    }
+                    syncChips();
+                    renderGrid();
+                });
+                chip.dataset.cat = cat;
+                mobileContainer.appendChild(chip);
+            });
+
+            // Sidebar checkbox events
+            document.getElementById('cat-all').addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    activeCategories.clear();
+                    document.querySelectorAll('.cat-checkbox').forEach(cb => cb.checked = false);
+                    renderGrid();
+                }
+            });
+
+            document.querySelectorAll('.cat-checkbox').forEach(cb => {
+                cb.addEventListener('change', () => {
+                    const cat = cb.dataset.cat;
+                    if (cb.checked) {
+                        activeCategories.add(cat);
+                    } else {
+                        activeCategories.delete(cat);
+                    }
+                    document.getElementById('cat-all').checked = activeCategories.size === 0;
+                    renderGrid();
+                });
+            });
+        }
+
+        function createChip(label, isActive, onClick) {
+            const btn = document.createElement('button');
+            btn.textContent = label;
+            btn.className = `category-chip px-3 py-1.5 text-xs font-medium rounded-full border transition-all ${isActive ? 'active' : ''}`;
+            btn.style.cssText = isActive
+                ? 'background:rgba(125,211,252,0.15);border-color:rgba(125,211,252,0.5);color:#7dd3fc;'
+                : 'background:rgba(15,21,36,0.6);border-color:rgba(125,211,252,0.1);color:#a0b4c4;';
+            btn.addEventListener('click', onClick);
+            return btn;
+        }
+
+        function syncChips() {
+            const chips = document.querySelectorAll('#mobile-category-chips button');
+            chips.forEach(chip => {
+                const cat = chip.dataset.cat;
+                const isActive = !cat ? activeCategories.size === 0 : activeCategories.has(cat);
+                chip.style.cssText = isActive
+                    ? 'background:rgba(125,211,252,0.15);border-color:rgba(125,211,252,0.5);color:#7dd3fc;'
+                    : 'background:rgba(15,21,36,0.6);border-color:rgba(125,211,252,0.1);color:#a0b4c4;';
+            });
+        }
+
+        function resetAll() {
+            activeCategories.clear();
+            searchQuery = '';
+            sortMode = 'default';
+            document.getElementById('catalog-search').value = '';
+            document.getElementById('sidebar-search').value = '';
+            document.getElementById('sort-select').value = 'default';
+            document.getElementById('cat-all').checked = true;
+            document.querySelectorAll('.cat-checkbox').forEach(cb => cb.checked = false);
+            syncChips();
+            renderGrid();
+        }
+
+        // ── Init ──────────────────────────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCategoryFilters();
+            renderGrid();
+
+            document.getElementById('catalog-search').addEventListener('input', (e) => {
+                searchQuery = e.target.value.trim();
+                document.getElementById('sidebar-search').value = searchQuery;
+                renderGrid();
+            });
+
+            document.getElementById('sidebar-search').addEventListener('input', (e) => {
+                searchQuery = e.target.value.trim();
+                document.getElementById('catalog-search').value = searchQuery;
+                renderGrid();
+            });
+
+            document.getElementById('sort-select').addEventListener('change', (e) => {
+                sortMode = e.target.value;
+                renderGrid();
+            });
+
+            document.getElementById('clear-filters-btn').addEventListener('click', resetAll);
+            document.getElementById('reset-from-empty').addEventListener('click', resetAll);
+        });
+    })();
+    </script>
+</body>
+
+</html>

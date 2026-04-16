@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Glass House Distro | Wholesale Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#a0b4c4",
+                        "surface-variant": "#1a2438",
+                        "secondary": "#88b4cc",
+                        "background": "#0a0e1a",
+                        "secondary-container": "#1a3a4e",
+                        "primary-fixed": "#c8eaff",
+                        "on-primary": "#001f2e",
+                        "on-surface": "#e0e8f0",
+                        "surface-tint": "#7dd3fc",
+                        "tertiary": "#c8a0f0",
+                        "on-primary-fixed": "#001f2e",
+                        "inverse-on-surface": "#0a0e1a",
+                        "tertiary-container": "#3d2060",
+                        "surface-container-high": "#1a2438",
+                        "on-secondary": "#001f2e",
+                        "on-primary-fixed-variant": "#004d73",
+                        "surface": "#0f1524",
+                        "surface-dim": "#0f1524",
+                        "tertiary-fixed-dim": "#c8a0f0",
+                        "surface-container": "#141c2e",
+                        "on-tertiary": "#1a002e",
+                        "surface-container-highest": "#202c42",
+                        "on-tertiary-fixed-variant": "#4d2a73",
+                        "secondary-fixed-dim": "#88b4cc",
+                        "inverse-surface": "#e0e8f0",
+                        "error": "#ff6b6b",
+                        "on-error": "#1a0000",
+                        "primary-container": "#0e4d6e",
+                        "surface-container-lowest": "#0a0e1a",
+                        "error-container": "#3d1414",
+                        "secondary-fixed": "#c0d8e8",
+                        "on-background": "#e0e8f0",
+                        "surface-bright": "#1a2438",
+                        "surface-container-low": "#111828",
+                        "primary-fixed-dim": "#7dd3fc",
+                        "on-tertiary-container": "#e8d0ff",
+                        "on-secondary-fixed-variant": "#2a4a5e",
+                        "inverse-primary": "#0a4c6e",
+                        "on-error-container": "#ffb3b3",
+                        "outline-variant": "#2a3a48",
+                        "outline": "#4a6070",
+                        "on-primary-container": "#c8eaff",
+                        "on-secondary-fixed": "#0d1f2b",
+                        "on-secondary-container": "#c0d8e8",
+                        "tertiary-fixed": "#e8d0ff",
+                        "primary": "#7dd3fc",
+                        "on-tertiary-fixed": "#1a002e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glacier-card {
+            background: rgba(15, 21, 36, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(125, 211, 252, 0.1);
+        }
+
+        .glacier-card-elevated {
+            background: rgba(15, 21, 36, 0.75);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(125, 211, 252, 0.15);
+        }
+
+        body {
+            background-color: #0a0e1a;
+            color: #e0e8f0;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <div class="flex min-h-screen bg-background">
+        <!-- SideNavBar -->
+        <aside
+            class="hidden md:flex flex-col h-screen p-4 space-y-6 bg-slate-950/75 backdrop-blur-2xl h-full w-64 border-r border-sky-400/10 font-inter text-sm fixed left-0 top-0 z-50">
+            <div class="flex items-center space-x-3 mb-8 px-2">
+                <div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary" data-icon="window">window</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-sky-300">Glass House</h1>
+                    <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Verified Distro</p>
+                </div>
+            </div>
+            <nav class="flex-1 space-y-2">
+                <a class="flex items-center space-x-3 px-4 py-3 bg-sky-400/10 text-sky-300 font-medium rounded-xl transition-all duration-200 ease-in-out"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a class="flex items-center space-x-3 px-4 py-3 text-slate-400 hover:bg-sky-400/5 hover:text-sky-100 transition-all duration-200 ease-in-out"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                    <span>Inventory</span>
+                </a>
+                <a class="flex items-center space-x-3 px-4 py-3 text-slate-400 hover:bg-sky-400/5 hover:text-sky-100 transition-all duration-200 ease-in-out"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                    <span>Orders</span>
+                </a>
+                <a class="flex items-center space-x-3 px-4 py-3 text-slate-400 hover:bg-sky-400/5 hover:text-sky-100 transition-all duration-200 ease-in-out"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                    <span>Invoices</span>
+                </a>
+                <a class="flex items-center space-x-3 px-4 py-3 text-slate-400 hover:bg-sky-400/5 hover:text-sky-100 transition-all duration-200 ease-in-out"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+                    <span>Support</span>
+                </a>
+            </nav>
+            <div class="pt-6 border-t border-sky-400/10 space-y-2">
+                <a class="flex items-center space-x-3 px-4 py-3 text-slate-400 hover:bg-sky-400/5 hover:text-sky-100 transition-all duration-200 ease-in-out"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    <span>Settings</span>
+                </a>
+                <button
+                    class="w-full mt-4 py-3 px-4 bg-primary text-on-primary font-semibold rounded-xl active:scale-95 transition-transform">
+                    Place Bulk Order
+                </button>
+            </div>
+        </aside>
+        <!-- Main Content Canvas -->
+        <main class="flex-1 md:ml-64 min-h-screen">
+            <!-- TopNavBar -->
+            <header class="bg-slate-950/60 backdrop-blur-xl border-b border-sky-400/10 sticky top-0 z-40">
+                <div
+                    class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto font-inter tracking-tight">
+                    <div class="flex items-center gap-8">
+                        <span class="text-2xl font-semibold tracking-tighter text-sky-300 md:hidden">Glass House
+                            Distro</span>
+                        <div class="hidden lg:flex gap-6">
+                            <a class="text-sky-300 border-b-2 border-sky-300 pb-1 hover:text-sky-200 transition-colors duration-300"
+                                href="#">Wholesale</a>
+                            <a class="text-slate-400 hover:text-sky-200 transition-colors duration-300" href="#">New
+                                Arrivals</a>
+                            <a class="text-slate-400 hover:text-sky-200 transition-colors duration-300" href="#">Best
+                                Sellers</a>
+                            <a class="text-slate-400 hover:text-sky-200 transition-colors duration-300" href="#">Bulk
+                                Orders</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <div class="relative hidden sm:block">
+                            <input
+                                class="bg-surface-container border border-outline-variant rounded-full px-5 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary w-64"
+                                placeholder="Search catalog..." type="text" />
+                            <span
+                                class="material-symbols-outlined absolute right-4 top-2 text-on-surface-variant text-lg"
+                                data-icon="search">search</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-on-surface-variant cursor-pointer"
+                                data-icon="notifications">notifications</span>
+                            <div
+                                class="h-8 w-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary text-xl"
+                                    data-icon="person">person</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Dashboard Content -->
+            <div class="p-8 max-w-screen-2xl mx-auto space-y-8">
+                <!-- Welcome & Fast Stats Bento -->
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                    <div
+                        class="lg:col-span-2 glacier-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="z-10">
+                            <h2 class="text-3xl font-bold text-on-surface mb-2">Welcome back, Partner.</h2>
+                            <p class="text-on-surface-variant max-w-md">Your inventory distribution is currently at
+                                optimal levels. 4 shipments are arriving this week.</p>
+                        </div>
+                        <div class="mt-8 flex gap-4 z-10">
+                            <button
+                                class="px-6 py-2.5 bg-primary/10 border border-primary/30 text-primary rounded-lg font-medium hover:bg-primary/20 transition-colors">View
+                                Analytics</button>
+                            <button
+                                class="px-6 py-2.5 text-on-surface-variant hover:text-on-surface transition-colors">Export
+                                CSV</button>
+                        </div>
+                        <div
+                            class="absolute -right-8 -bottom-8 opacity-10 group-hover:scale-110 transition-transform duration-500">
+                            <span class="material-symbols-outlined text-[160px]"
+                                data-icon="monitoring">monitoring</span>
+                        </div>
+                    </div>
+                    <div
+                        class="glacier-card rounded-2xl p-6 flex flex-col justify-between border-l-4 border-l-primary shadow-[0_0_30px_rgba(125,211,252,0.05)]">
+                        <div>
+                            <p class="text-xs font-medium text-primary uppercase tracking-widest mb-1">Account Balance
+                            </p>
+                            <h3 class="text-3xl font-bold text-on-surface">$24,850.00</h3>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-tertiary"
+                                data-icon="credit_card">credit_card</span>
+                            <span>Next payment: Oct 24th</span>
+                        </div>
+                    </div>
+                    <div
+                        class="glacier-card rounded-2xl p-6 flex flex-col justify-between border-l-4 border-l-tertiary">
+                        <div>
+                            <p class="text-xs font-medium text-tertiary uppercase tracking-widest mb-1">Active Credit
+                            </p>
+                            <h3 class="text-3xl font-bold text-on-surface">$100,000</h3>
+                        </div>
+                        <div class="w-full bg-surface-container-highest h-1.5 rounded-full mt-4 overflow-hidden">
+                            <div class="bg-tertiary h-full w-3/4"></div>
+                        </div>
+                        <p class="text-[10px] text-on-surface-variant mt-2 text-right">75% of limit reached</p>
+                    </div>
+                </div>
+                <!-- Middle Section: Orders & Quick Reorder -->
+                <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                    <!-- Recent Orders -->
+                    <div class="xl:col-span-2 glacier-card rounded-2xl overflow-hidden">
+                        <div class="px-6 py-5 border-b border-sky-400/10 flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-on-surface">Recent Orders</h3>
+                            <a class="text-primary text-sm font-medium hover:underline" href="#">View All</a>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="bg-surface-container-low/50">
+                                    <tr>
+                                        <th class="px-6 py-4 text-xs font-semibold text-on-surface-variant uppercase">
+                                            Order ID</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-on-surface-variant uppercase">
+                                            Status</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-on-surface-variant uppercase">
+                                            Items</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-on-surface-variant uppercase">
+                                            Total</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-on-surface-variant uppercase">
+                                            Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-sky-400/5">
+                                    <tr class="hover:bg-sky-400/5 transition-colors group">
+                                        <td class="px-6 py-4 font-medium text-sky-300">#GH-92831</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">Processing</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-on-surface-variant">12 SKUs</td>
+                                        <td class="px-6 py-4 font-semibold text-on-surface">$4,250.00</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="material-symbols-outlined text-on-surface-variant group-hover:text-primary cursor-pointer"
+                                                data-icon="visibility">visibility</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-sky-400/5 transition-colors group">
+                                        <td class="px-6 py-4 font-medium text-sky-300">#GH-92745</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Shipped</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-on-surface-variant">42 SKUs</td>
+                                        <td class="px-6 py-4 font-semibold text-on-surface">$12,800.00</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="material-symbols-outlined text-on-surface-variant group-hover:text-primary cursor-pointer"
+                                                data-icon="visibility">visibility</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-sky-400/5 transition-colors group">
+                                        <td class="px-6 py-4 font-medium text-sky-300">#GH-92612</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Delivered</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-on-surface-variant">8 SKUs</td>
+                                        <td class="px-6 py-4 font-semibold text-on-surface">$2,100.00</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="material-symbols-outlined text-on-surface-variant group-hover:text-primary cursor-pointer"
+                                                data-icon="visibility">visibility</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Shipment Tracking -->
+                    <div class="glacier-card rounded-2xl p-6 flex flex-col">
+                        <h3 class="font-semibold text-lg text-on-surface mb-6">Active Shipment</h3>
+                        <div class="flex-1 space-y-6">
+                            <div class="relative pl-8 border-l border-sky-400/20 space-y-8">
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[37px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20">
+                                    </div>
+                                    <p class="text-sm font-semibold text-on-surface">Arrived at Local Facility</p>
+                                    <p class="text-xs text-on-surface-variant">Oct 12, 2023 • 08:45 AM</p>
+                                </div>
+                                <div class="relative opacity-50">
+                                    <div
+                                        class="absolute -left-[37px] top-0 w-4 h-4 rounded-full bg-surface-container-highest border border-sky-400/20">
+                                    </div>
+                                    <p class="text-sm font-semibold text-on-surface">Out for Delivery</p>
+                                    <p class="text-xs text-on-surface-variant">Estimated Oct 13</p>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-auto bg-surface-container-highest rounded-xl p-4 border border-outline-variant">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-medium text-on-surface-variant uppercase">Carrier</span>
+                                    <span class="text-sm font-bold text-sky-300">EXPRESS-TRANS</span>
+                                </div>
+                                <div class="text-xs text-on-surface-variant truncate">
+                                    ID: TRK-992-441-229-X
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bottom Row: Quick Reorder Bento -->
+                <div class="glacier-card rounded-2xl p-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-on-surface">Quick Reorder</h3>
+                            <p class="text-on-surface-variant">Based on your frequently purchased wholesale items.</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button
+                                class="p-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+                            </button>
+                            <button
+                                class="p-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined"
+                                    data-icon="format_list_bulleted">format_list_bulleted</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Product Card 1 -->
+                        <div class="glacier-card-elevated rounded-xl overflow-hidden group">
+                            <div class="h-48 relative">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="Premium glassware in studio lighting with sharp reflections and deep navy aesthetic"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuANWjdcO9CUtpHLT-loV-NfUo3_6GVAf7BzZHOz4z6VO5gLyq3L7EQNS8ahJ6C4fuHon2V7YuBRAgKBNojNCC2Akd59514L_JQile-nNoWJJ2M7tn5G-sZ5buE_U5CrP77dD6claogEFQjttLMl3hIQIEFKZA2khHJmQWjrItGgL64438JB7H0UwD31770QicjWHCl5GVDVVb4hTyiCN4xugHU7zgWjbqezOccnU7Xz1tDA2jZEHvQW1gvdjGow6u1auoeFMlVqC_Q" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                                <span
+                                    class="absolute top-3 right-3 px-2 py-1 bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] font-bold rounded">IN
+                                    STOCK</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-on-surface truncate">Vortex Glass XL</h4>
+                                <p class="text-xs text-on-surface-variant mb-4">Case of 24 units</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-primary">$540.00</span>
+                                    <button
+                                        class="p-2 bg-primary text-on-primary rounded-lg active:scale-90 transition-transform">
+                                        <span class="material-symbols-outlined text-lg"
+                                            data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 2 -->
+                        <div class="glacier-card-elevated rounded-xl overflow-hidden group">
+                            <div class="h-48 relative">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="Minimalist frosted glass packaging on a dark reflective surface with ice-blue backlighting"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSScUP-obwG4dIJzk4J5QsWtanzZTWNRELzAJWqF_mATNSyhBECf1km3lc4nHPtc74apBqksB6ur8UCmUCEzzdH6neQlEE-t12LoXiAZbVMGqK01j9cvbOzxux53G0kaylPdwtROLI3B3dLFgPO2xut_A9nQLODQ5lw-UPgq4T0mpgtRitgRbIVOgz6xklLRCcptkg1MEZHbtENUCxUb54iT0n2K3N5DH75geiL2MvrBfP5fuGPgIc8SAahCfULKMODxPQcO2y0UM" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                                <span
+                                    class="absolute top-3 right-3 px-2 py-1 bg-tertiary/20 text-tertiary border border-tertiary/30 text-[10px] font-bold rounded">LOW
+                                    STOCK</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-on-surface truncate">Frosted Decanter Set</h4>
+                                <p class="text-xs text-on-surface-variant mb-4">Case of 12 units</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-primary">$820.00</span>
+                                    <button
+                                        class="p-2 bg-primary text-on-primary rounded-lg active:scale-90 transition-transform">
+                                        <span class="material-symbols-outlined text-lg"
+                                            data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 3 -->
+                        <div class="glacier-card-elevated rounded-xl overflow-hidden group">
+                            <div class="h-48 relative">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="Close-up of intricate crystalline structures glowing with soft internal neon light"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuChyLocyiy0QfxPqIJ8PMGh2V93xV6dk3gK3nEwh2Icoxdvst_Z2UMeT43eHdMAylMJlq3Do2QmnoeeGOwn_V1VqgDojLv7O5KlV5L5xjz1pIhYMIMbXzpagjnoNe2wrOiaf9PSA7e8uEtc6OMv0Z8sFwLrKar7Vivakn1U_iwohdIVeIOqZBBW9CLyqRru9eY-mQdwY370cH4lW-ABAiRHVUBAXCLS7nOgeJ3eHM0_uXjTjiUb3azig6WEXhjXRCcUwaCGDOiiP7A" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                                <span
+                                    class="absolute top-3 right-3 px-2 py-1 bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] font-bold rounded">IN
+                                    STOCK</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-on-surface truncate">Crystal Diffuser Base</h4>
+                                <p class="text-xs text-on-surface-variant mb-4">Case of 50 units</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-primary">$1,100.00</span>
+                                    <button
+                                        class="p-2 bg-primary text-on-primary rounded-lg active:scale-90 transition-transform">
+                                        <span class="material-symbols-outlined text-lg"
+                                            data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 4 -->
+                        <div class="glacier-card-elevated rounded-xl overflow-hidden group">
+                            <div class="h-48 relative">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="Sleek modern black glass bottle with gold accents on a dark slate surface"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEXYYODRW4TSi0xCS5vWzARfmwOOM_PihVmg2bwp_pDV73QCW0Mkmd9wXtShgkPP1ycNrL4pGSYs59qeRL2TIUhotVWZ2VDq4vXg9BtomSz_cAxTZIkHVli9mxCD7w_oRmLfEA6ZWGAOdCK2yooxskyrQzDNDBxnGMh-PqLRb-EOUzfss3eLQe2_UCyvHl9LzmhXFdb1lJkeXKaCzvpqImFNxTCrQvgyNmjRJU9EFZFjqQSIL2fG7IzNZzZVc5axVzn9RwiDAwNcg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                                <span
+                                    class="absolute top-3 right-3 px-2 py-1 bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] font-bold rounded">IN
+                                    STOCK</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-on-surface truncate">Noir Obsidian Vials</h4>
+                                <p class="text-xs text-on-surface-variant mb-4">Case of 100 units</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-primary">$320.00</span>
+                                    <button
+                                        class="p-2 bg-primary text-on-primary rounded-lg active:scale-90 transition-transform">
+                                        <span class="material-symbols-outlined text-lg"
+                                            data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer
+                class="bg-slate-950 w-full py-12 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center px-12 font-inter text-xs text-slate-500 mt-12">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-lg font-bold text-slate-300">Glass House</span>
+                    <p class="mt-2">© 2024 Glass House Distro. Wholesale Only.</p>
+                </div>
+                <div class="flex gap-8">
+                    <a class="hover:text-sky-300 transition-colors" href="#">Terms of Service</a>
+                    <a class="hover:text-sky-300 transition-colors" href="#">Shipping Policy</a>
+                    <a class="hover:text-sky-300 transition-colors" href="#">Compliance</a>
+                    <a class="hover:text-sky-300 transition-colors" href="#">Contact Us</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <!-- Mobile Navigation Shell -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-950/90 backdrop-blur-xl border-t border-sky-400/10 flex justify-around items-center py-4 z-50">
+        <a class="text-sky-300 flex flex-col items-center" href="#">
+            <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+            <span class="text-[10px] mt-1">Home</span>
+        </a>
+        <a class="text-slate-400 flex flex-col items-center" href="#">
+            <span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+            <span class="text-[10px] mt-1">Items</span>
+        </a>
+        <div
+            class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center -mt-8 border-4 border-background shadow-lg shadow-primary/20">
+            <span class="material-symbols-outlined" data-icon="add">add</span>
+        </div>
+        <a class="text-slate-400 flex flex-col items-center" href="#">
+            <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+            <span class="text-[10px] mt-1">Orders</span>
+        </a>
+        <a class="text-slate-400 flex flex-col items-center" href="#">
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+            <span class="text-[10px] mt-1">Profile</span>
+        </a>
+    </nav>
+</body>
+
+</html>

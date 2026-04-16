@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Catalog | Glass House Distro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#a0b4c4",
+                    "surface-variant": "#1a2438",
+                    "secondary": "#88b4cc",
+                    "background": "#0a0e1a",
+                    "secondary-container": "#1a3a4e",
+                    "primary-fixed": "#c8eaff",
+                    "on-primary": "#001f2e",
+                    "on-surface": "#e0e8f0",
+                    "surface-tint": "#7dd3fc",
+                    "tertiary": "#c8a0f0",
+                    "on-primary-fixed": "#001f2e",
+                    "inverse-on-surface": "#0a0e1a",
+                    "tertiary-container": "#3d2060",
+                    "surface-container-high": "#1a2438",
+                    "on-secondary": "#001f2e",
+                    "on-primary-fixed-variant": "#004d73",
+                    "surface": "#0f1524",
+                    "surface-dim": "#0f1524",
+                    "tertiary-fixed-dim": "#c8a0f0",
+                    "surface-container": "#141c2e",
+                    "on-tertiary": "#1a002e",
+                    "surface-container-highest": "#202c42",
+                    "on-tertiary-fixed-variant": "#4d2a73",
+                    "secondary-fixed-dim": "#88b4cc",
+                    "inverse-surface": "#e0e8f0",
+                    "error": "#ff6b6b",
+                    "on-error": "#1a0000",
+                    "primary-container": "#0e4d6e",
+                    "surface-container-lowest": "#0a0e1a",
+                    "error-container": "#3d1414",
+                    "secondary-fixed": "#c0d8e8",
+                    "on-background": "#e0e8f0",
+                    "surface-bright": "#1a2438",
+                    "surface-container-low": "#111828",
+                    "primary-fixed-dim": "#7dd3fc",
+                    "on-tertiary-container": "#e8d0ff",
+                    "on-secondary-fixed-variant": "#2a4a5e",
+                    "inverse-primary": "#0a4c6e",
+                    "on-error-container": "#ffb3b3",
+                    "outline-variant": "#2a3a48",
+                    "outline": "#4a6070",
+                    "on-primary-container": "#c8eaff",
+                    "on-secondary-fixed": "#0d1f2b",
+                    "on-secondary-container": "#c0d8e8",
+                    "tertiary-fixed": "#e8d0ff",
+                    "primary": "#7dd3fc",
+                    "on-tertiary-fixed": "#1a002e"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(15, 21, 36, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(125, 211, 252, 0.1);
+        }
+        .glass-panel-elevated {
+            background: rgba(15, 21, 36, 0.75);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(125, 211, 252, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-slate-950/60 backdrop-blur-xl border-b border-sky-400/10 shadow-[0_0_30px_rgba(125,211,252,0.05)] z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-semibold tracking-tighter text-sky-300 font-headline">Glass House Distro</div>
+<div class="hidden md:flex items-center space-x-8 font-inter tracking-tight">
+<a class="text-sky-300 border-b-2 border-sky-300 pb-1 cursor-pointer active:scale-95 transition-colors duration-300" href="#">Wholesale</a>
+<a class="text-slate-400 hover:text-sky-200 transition-colors duration-300 cursor-pointer active:scale-95" href="#">New Arrivals</a>
+<a class="text-slate-400 hover:text-sky-200 transition-colors duration-300 cursor-pointer active:scale-95" href="#">Best Sellers</a>
+<a class="text-slate-400 hover:text-sky-200 transition-colors duration-300 cursor-pointer active:scale-95" href="#">Bulk Orders</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-slate-400 hover:text-sky-200 font-medium px-4 py-2 transition-all">Sign In</button>
+<button class="bg-primary/10 border border-primary/20 text-primary px-6 py-2 rounded-lg font-semibold hover:bg-primary/20 transition-all active:scale-95">Open Account</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20 px-8 max-w-screen-2xl mx-auto flex gap-8">
+<!-- Sidebar Filters -->
+<aside class="hidden lg:block w-72 flex-shrink-0">
+<div class="glass-panel rounded-xl p-6 sticky top-28 space-y-8">
+<div>
+<h3 class="text-primary font-semibold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                        Filters
+                    </h3>
+<!-- Brand Filter -->
+<div class="space-y-3 mb-8">
+<label class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Brand</label>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline bg-surface-container text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">Icarus Glass</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline bg-surface-container text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">Frostbite Collective</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline bg-surface-container text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">Nebula Studios</span>
+</label>
+</div>
+</div>
+<!-- Glass Type Filter -->
+<div class="space-y-3 mb-8">
+<label class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Glass Type</label>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-full border-outline bg-surface-container text-primary focus:ring-primary/20" name="glass_type" type="radio"/>
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">Borosilicate</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-full border-outline bg-surface-container text-primary focus:ring-primary/20" name="glass_type" type="radio"/>
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">Recycler Tech</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-full border-outline bg-surface-container text-primary focus:ring-primary/20" name="glass_type" type="radio"/>
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">Heady Art</span>
+</label>
+</div>
+</div>
+<!-- Size Filter -->
+<div class="space-y-3 mb-8">
+<label class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Height</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="px-3 py-2 text-xs border border-outline-variant rounded-lg hover:border-primary transition-colors">Under 10"</button>
+<button class="px-3 py-2 text-xs border border-outline-variant rounded-lg hover:border-primary transition-colors">10" - 15"</button>
+<button class="px-3 py-2 text-xs border border-outline-variant rounded-lg hover:border-primary transition-colors">15" - 20"</button>
+<button class="px-3 py-2 text-xs border border-outline-variant rounded-lg hover:border-primary transition-colors">20"+</button>
+</div>
+</div>
+<!-- Price Range (Visual Only) -->
+<div class="space-y-3">
+<label class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Wholesale Tier</label>
+<div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden relative">
+<div class="absolute left-1/4 right-1/4 h-full bg-primary/40"></div>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant">
+<span>TIER 1</span>
+<span>TIER 5</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-surface-container-highest py-3 rounded-xl text-sm font-medium hover:bg-surface-variant transition-all border border-outline-variant/50">
+                    Clear All Filters
+                </button>
+</div>
+</aside>
+<!-- Product Grid Content -->
+<section class="flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-3xl font-bold tracking-tight text-on-surface">Premium Wholesale Catalog</h1>
+<p class="text-on-surface-variant">Showing 42 artisan glass products available for bulk order.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container border border-outline-variant rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none w-64" placeholder="Search catalog..." type="text"/>
+</div>
+<select class="bg-surface-container border border-outline-variant rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none">
+<option>Sort: Latest</option>
+<option>Sort: Popular</option>
+<option>Sort: Price Low-High</option>
+</select>
+</div>
+</div>
+<!-- Bento-Style Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Product Card 1 -->
+<div class="glass-panel rounded-2xl overflow-hidden flex flex-col group cursor-pointer">
+<div class="h-72 overflow-hidden relative">
+<img alt="Artisan Glass Bong" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Stunning studio photo of a premium borosilicate glass water pipe with iridescent finish and complex internal recycler structures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCGVN4b3EEnPNdKdkWwKOEKaGtXUZtVrFl5VQ6MM1pEz_yYnAxRBYgeQNkz4KDzHtuUriZlYs292X8c-czgHd7SrE69mWhxErzrp6kT4N1qh8XTsLAw0aPfF2Wd0ecIF9mmdW7p-NAmIxE24qdp_2BRC4LmzEDCzqYmZUg29icjAk5ft_33uunv5DqWba2fM1GEea5X0LQ5xNGylRI61NS-7SzfEGWJoTmJjv08nXletxZDXrxk5ApWcDkZXSDVpMBFHDyIyVUPKU"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/20 backdrop-blur-md text-primary px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-primary/30">New Arrival</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="mb-4">
+<p class="text-xs text-secondary font-medium tracking-wide mb-1">ICARUS GLASS</p>
+<h3 class="text-xl font-semibold text-on-surface leading-snug">Nebula Recycler v4</h3>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">straighten</span>
+<span class="text-xs">14.5" Height</span>
+<span class="mx-2 text-outline-variant">|</span>
+<span class="material-symbols-outlined text-sm">hardware</span>
+<span class="text-xs">14mm Joint</span>
+</div>
+<div class="pt-4 border-t border-sky-400/5">
+<p class="text-sm font-medium text-primary-fixed italic">Sign in for Wholesale Pricing</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="glass-panel rounded-2xl overflow-hidden flex flex-col group cursor-pointer">
+<div class="h-72 overflow-hidden relative">
+<img alt="Modern Perc Rig" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Abstract studio shot of geometric frosted glass rig with sharp angles and minimalist aesthetic on dark reflective surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOQawkY1KIbaeLJF2qSXgg0jtHWf7B5YmmCLJXh167JuyBNBxkpprBJjcw8VuIu7sbSk-LgdyUMtVKmCt3R6vcQIkZHF718ItDPbXWrafuCto8hghkQKyI0dn0Pe_mIkN0NSFHkbuPKpKdaQ1RA966W8OSo2aD8-vPPyGp7FFSszKxc8q9RisFK1g2d6B2r0neRNY-qcxcvahgCG-Udc9wVSKbrizeo-0IIxKMlxh8NNmOa7oxwsCYZnDrL_9VRUEJcUSysqEdarQ"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="mb-4">
+<p class="text-xs text-secondary font-medium tracking-wide mb-1">FROSTBITE COLLECTIVE</p>
+<h3 class="text-xl font-semibold text-on-surface leading-snug">Cryo-Frosted Straight Tube</h3>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">straighten</span>
+<span class="text-xs">18.0" Height</span>
+<span class="mx-2 text-outline-variant">|</span>
+<span class="material-symbols-outlined text-sm">hardware</span>
+<span class="text-xs">18mm Joint</span>
+</div>
+<div class="pt-4 border-t border-sky-400/5">
+<p class="text-sm font-medium text-primary-fixed italic">Sign in for Wholesale Pricing</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="glass-panel rounded-2xl overflow-hidden flex flex-col group cursor-pointer">
+<div class="h-72 overflow-hidden relative">
+<img alt="Heady Art Piece" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Detailed close up of hand-blown artistic glass with swirls of amber and deep violet glass accents and intricate detailing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBstouuLRxFmQi-3VwfeeogWJixN_z-_HjWtlPPNB31oNU0vuN5QbF3jISRqrUCJUWkKBG2iScDLif8abkP_IFyKdfZdTv3R6ZeQ7_w1fXzuM_hPndgzEi5CY3ZSlVpCQ63mEbSvOYfa2VMtI9qrOIrnTE7_Cvjo0QY0QR2KN88Qy7z1DbfXS425196RldfGm06JO_d3W_XCXIiLjjvHBjwDRIkQCtEeAC5dd4ARrfpE9x2Je8l2-68OUzTROD2Ezb-ioLxHIY4o_w"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary/20 backdrop-blur-md text-tertiary px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-tertiary/30">Limited Edition</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="mb-4">
+<p class="text-xs text-secondary font-medium tracking-wide mb-1">NEBULA STUDIOS</p>
+<h3 class="text-xl font-semibold text-on-surface leading-snug">Amber Wave Klein</h3>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">straighten</span>
+<span class="text-xs">9.0" Height</span>
+<span class="mx-2 text-outline-variant">|</span>
+<span class="material-symbols-outlined text-sm">hardware</span>
+<span class="text-xs">10mm Joint</span>
+</div>
+<div class="pt-4 border-t border-sky-400/5">
+<p class="text-sm font-medium text-primary-fixed italic">Sign in for Wholesale Pricing</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="glass-panel rounded-2xl overflow-hidden flex flex-col group cursor-pointer">
+<div class="h-72 overflow-hidden relative">
+<img alt="Heavy Duty Beaker" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Classic thick-walled glass beaker bong with solid base and minimalist branding on a dark wood background with smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnxKvlTofOiVrxz1im7HabjeQ9OS__fGTsHn85wTyPv9GHqFXA_rml5JOKONTNrTpSM0JATXBl6j8wpo69S9b7CAf8cyCRFNo0SATFiY_1K9qK0AiusVA4LThJNGkd4W5eDXluTxXzbQUKBQ5uOb74uIht6X2xkBmXcJ2txrqsf07h5Mf0yf7w7sWNnN0U1OCk4CboiSvRygPm3uicjIWzob5kQUmaDR-69AOPcGVKld6tgs9z5jZfEhXAsfMoAzKxb_7tck6LWK8"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="mb-4">
+<p class="text-xs text-secondary font-medium tracking-wide mb-1">ICARUS GLASS</p>
+<h3 class="text-xl font-semibold text-on-surface leading-snug">Foundation 9mm Beaker</h3>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">straighten</span>
+<span class="text-xs">16.0" Height</span>
+<span class="mx-2 text-outline-variant">|</span>
+<span class="material-symbols-outlined text-sm">hardware</span>
+<span class="text-xs">14mm Joint</span>
+</div>
+<div class="pt-4 border-t border-sky-400/5">
+<p class="text-sm font-medium text-primary-fixed italic">Sign in for Wholesale Pricing</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="glass-panel rounded-2xl overflow-hidden flex flex-col group cursor-pointer">
+<div class="h-72 overflow-hidden relative">
+<img alt="Compact Rig" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Modern small dab rig with circular percolator and translucent blue glass accents, clean aesthetic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs9tdcQgjh-FEyE3-uvlFC8_PBeVKWIxK0EXgMb3mDzdcvJBKCU2DMcEICCuH1MTqkZKl9Pa5Gcd1mWawrTR0pGZ4VY0xUHZk0uGK2f4nX27QsQ6C-WDWUeLs5uf0zZHYpS2uOAwMj_dys31kIqMEGdIi0LYKVixTV84dlFbRLqtWsCTkfSNWGjowT0l_KMg-YpRWNNkHYE20ZlZnx_Te63QHRhcR4xa-6qWElmadi8SMr-A9c4BU8TDfx0EfVzj_77i9rLKiRVoc"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/20 backdrop-blur-md text-primary px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-primary/30">Best Seller</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="mb-4">
+<p class="text-xs text-secondary font-medium tracking-wide mb-1">FROSTBITE COLLECTIVE</p>
+<h3 class="text-xl font-semibold text-on-surface leading-snug">Ion Mini Sidecar</h3>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">straighten</span>
+<span class="text-xs">7.5" Height</span>
+<span class="mx-2 text-outline-variant">|</span>
+<span class="material-symbols-outlined text-sm">hardware</span>
+<span class="text-xs">10mm Joint</span>
+</div>
+<div class="pt-4 border-t border-sky-400/5">
+<p class="text-sm font-medium text-primary-fixed italic">Sign in for Wholesale Pricing</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="glass-panel rounded-2xl overflow-hidden flex flex-col group cursor-pointer">
+<div class="h-72 overflow-hidden relative">
+<img alt="Custom Chillum" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Collection of artistic glass chillums and hand pipes with colorful cosmic swirls and gold leaf fuming" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1w2UGxOpWMA7q60quNUK0JNuB-ItQ1dDhR36n39fJnHygVNCz0t4Ouugmwwy6KnQRduEu1vi1gpftZhFoRIe9HQGDUkCFn7Je0J9WohSOr0Ln3rSclYLDC1Nf0Le3dJPhuPIN6T6ZKJCmkptrlxAUm2ZD8REhZvv22eMChtWhp59nXtrb-fNPALqrZ50HrPwlG-8y5Lv_Z8dHH6ZOplbxc2fkB7JE1to0euhR94x3uVH01elPM01zP5srxEwFZigIh-TNjGc8rws"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="mb-4">
+<p class="text-xs text-secondary font-medium tracking-wide mb-1">NEBULA STUDIOS</p>
+<h3 class="text-xl font-semibold text-on-surface leading-snug">Nebula Hand Pipe Series</h3>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">straighten</span>
+<span class="text-xs">4.0" Length</span>
+<span class="mx-2 text-outline-variant">|</span>
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span class="text-xs">Fumed Finish</span>
+</div>
+<div class="pt-4 border-t border-sky-400/5">
+<p class="text-sm font-medium text-primary-fixed italic">Sign in for Wholesale Pricing</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex items-center justify-center gap-2">
+<button class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary/20 text-primary border border-primary/40 font-bold">1</button>
+<button class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary transition-all font-medium">2</button>
+<button class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary transition-all font-medium">3</button>
+<span class="px-2 text-on-surface-variant">...</span>
+<button class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary transition-all font-medium">12</button>
+<button class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-950 border-t border-slate-900 w-full py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 w-full max-w-screen-2xl mx-auto font-inter text-xs text-slate-500">
+<div class="mb-8 md:mb-0">
+<div class="text-lg font-bold text-slate-300 mb-2">Glass House Distro</div>
+<p>© 2024 Glass House Distro. Wholesale Only.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="hover:text-sky-300 transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-sky-300 transition-colors" href="#">Shipping Policy</a>
+<a class="hover:text-sky-300 transition-colors" href="#">Compliance</a>
+<a class="hover:text-sky-300 transition-colors" href="#">Contact Us</a>
+</div>
+<div class="mt-8 md:mt-0 flex items-center gap-4">
+<div class="w-8 h-8 rounded-full glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer transition-all">
+<span class="material-symbols-outlined text-sm">language</span>
+</div>
+<div class="w-8 h-8 rounded-full glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer transition-all">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- FAB (Suppressed on details, shown for bulk actions) -->
+<div class="fixed bottom-8 right-8 z-40">
+<button class="flex items-center gap-3 bg-primary text-on-primary px-6 py-4 rounded-2xl font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-weight="fill">shopping_cart_checkout</span>
+<span>Place Bulk Order</span>
+</button>
+</div>
+</body></html>
