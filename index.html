@@ -1,62 +1,27 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Glass House Distro | Premium Wholesale Glassware</title>
+    <script src="theme.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="data/products.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
-        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0e1a;
-            color: #e0e8f0;
-        }
-
-        .glass-card {
-            background: rgba(15, 21, 36, 0.6);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(125, 211, 252, 0.1);
-        }
-
-        .glass-card-elevated {
-            background: rgba(15, 21, 36, 0.75);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(125, 211, 252, 0.15);
-        }
-
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-
-        .product-card:hover .product-image {
-            transform: scale(1.05);
-        }
-
-        .product-card:hover {
-            border-color: rgba(125, 211, 252, 0.3);
-        }
-
-        .product-card:hover .view-details {
-            opacity: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
+                    colors: {
                         "on-surface-variant": "#a0b4c4",
                         "surface-variant": "#1a2438",
                         "secondary": "#88b4cc",
@@ -72,14 +37,11 @@
                         "tertiary-container": "#3d2060",
                         "surface-container-high": "#1a2438",
                         "on-secondary": "#001f2e",
-                        "on-primary-fixed-variant": "#004d73",
                         "surface": "#0f1524",
                         "surface-dim": "#0f1524",
-                        "tertiary-fixed-dim": "#c8a0f0",
                         "surface-container": "#141c2e",
                         "on-tertiary": "#1a002e",
                         "surface-container-highest": "#202c42",
-                        "on-tertiary-fixed-variant": "#4d2a73",
                         "secondary-fixed-dim": "#88b4cc",
                         "inverse-surface": "#e0e8f0",
                         "error": "#ff6b6b",
@@ -105,385 +67,550 @@
                         "primary": "#7dd3fc",
                         "on-tertiary-fixed": "#1a002e"
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0.5rem",
-                        "lg": "1rem",
-                        "xl": "1.5rem",
-                        "full": "9999px"
-                    },
-                    "fontFamily": {
-                        "headline": ["Inter"],
-                        "body": ["Inter"],
-                        "label": ["Inter"]
-                    }
-                },
-            },
+                    borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px" },
+                    fontFamily: { headline: ["Playfair Display", "serif"], body: ["Inter", "sans-serif"], label: ["Inter", "sans-serif"] }
+                }
+            }
         }
     </script>
 </head>
 
-<body class="selection:bg-primary/30 selection:text-primary">
-    <!-- TopNavBar Navigation Shell -->
-    <nav
-        class="fixed top-0 w-full bg-slate-950/60 backdrop-blur-xl border-b border-sky-400/10 shadow-[0_0_30px_rgba(125,211,252,0.05)] z-50">
-        <div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
-            <a href="https://glasshousedistro.com/" class="text-2xl font-semibold tracking-tighter text-sky-300 font-inter">Glass House Distro</a>
-            <div class="hidden md:flex items-center gap-8 font-inter tracking-tight">
-                <a class="text-sky-300 border-b-2 border-sky-300 pb-1 cursor-pointer active:scale-95 transition-colors duration-300"
-                    href="#products">Wholesale</a>
-                <a class="text-slate-400 hover:text-sky-200 transition-colors duration-300 cursor-pointer active:scale-95"
-                    href="#new-arrivals">New Arrivals</a>
-                <a class="text-slate-400 hover:text-sky-200 transition-colors duration-300 cursor-pointer active:scale-95"
-                    href="#best-sellers">Best Sellers</a>
-                <a class="text-slate-400 hover:text-sky-200 transition-colors duration-300 cursor-pointer active:scale-95"
-                    href="https://glasshousedistro.com/product-category/waterpipe/" target="_blank">Bulk Orders</a>
+<body class="selection:bg-primary/20 selection:text-primary">
+
+    <!-- ── Navigation ── -->
+    <nav class="site-nav fixed top-0 w-full border-b z-50" style="border-color: var(--border);">
+        <div
+            class="relative flex justify-between items-center w-full px-4 md:px-10 py-3.5 md:py-4 max-w-screen-2xl mx-auto gap-3">
+
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+                <span class="w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold"
+                    style="background: var(--primary-faint); border: 1px solid var(--border-hi); color: var(--primary);">GH</span>
+                <span class="text-lg md:text-xl font-bold tracking-tight" style="color: var(--text);">Glass House</span>
+            </a>
+
+            <!-- Nav links -->
+            <div class="hidden md:flex items-center gap-1">
+                <a class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-[var(--primary-faint)]"
+                    style="color: var(--text-2);" href="#products">Wholesale</a>
+                <a class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-[var(--primary-faint)]"
+                    style="color: var(--text-2);" href="#new-arrivals">New Arrivals</a>
+                <a class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-[var(--primary-faint)]"
+                    style="color: var(--text-2);" href="#best-sellers">Best Sellers</a>
+                <a class="nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-[var(--primary-faint)]"
+                    style="color: var(--text-2);" href="products.html">Catalog</a>
             </div>
-            <div class="flex items-center gap-4">
+
+            <!-- Actions -->
+            <div class="flex items-center gap-2 shrink-0">
+                <button class="hidden md:block text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200"
+                    style="color: var(--text-2);"
+                    onmouseover="this.style.color='var(--primary)'; this.style.background='var(--primary-faint)';"
+                    onmouseout="this.style.color='var(--text-2)'; this.style.background='transparent';">
+                    Sign In
+                </button>
+                <a href="contact.html"
+                    class="hidden sm:inline-flex text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200"
+                    style="background: var(--primary-faint); border: 1px solid var(--border-hi); color: var(--primary);"
+                    onmouseover="this.style.background='var(--primary-glow)';"
+                    onmouseout="this.style.background='var(--primary-faint)';">
+                    Open Account
+                </a>
+                <!-- Theme toggle -->
                 <button
-                    class="text-slate-400 font-medium hover:text-sky-200 transition-colors duration-300 px-4 py-2">Sign
-                    In</button>
-                <button
-                    class="bg-primary/10 border border-primary/30 text-primary font-semibold px-6 py-2.5 rounded-lg hover:bg-primary/20 transition-all duration-300 shadow-[0_0_15px_rgba(125,211,252,0.1)]">Open
-                    Account</button>
+                    class="theme-toggle-btn w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
+                    style="background: var(--primary-faint); border: 1px solid var(--border-hi); color: var(--primary);"
+                    title="Toggle theme" aria-label="Toggle theme"
+                    onmouseover="this.style.background='var(--primary-glow)';"
+                    onmouseout="this.style.background='var(--primary-faint)';">
+                    <span class="material-symbols-outlined theme-toggle-icon"
+                        style="font-size: 1.1rem;">light_mode</span>
+                </button>
+                <button class="mobile-nav-toggle md:hidden" id="mobile-nav-toggle" aria-expanded="false"
+                    aria-controls="mobile-nav-panel" aria-label="Open menu">
+                    <span class="material-symbols-outlined" id="mobile-nav-icon">menu</span>
+                </button>
+            </div>
+
+            <div class="mobile-nav-panel md:hidden" id="mobile-nav-panel" role="menu" aria-hidden="true">
+                <a class="mobile-nav-link" href="#products">Wholesale</a>
+                <a class="mobile-nav-link" href="#new-arrivals">New Arrivals</a>
+                <a class="mobile-nav-link" href="#best-sellers">Best Sellers</a>
+                <a class="mobile-nav-link" href="products.html">Catalog</a>
+                <a class="mobile-nav-link" href="contact.html">Open Account</a>
             </div>
         </div>
     </nav>
-    <main class="pt-24">
-        <!-- Hero Section -->
-        <section class="relative min-h-[870px] flex items-center px-8 md:px-24 overflow-hidden">
-            <!-- Background Image with Gradient Overlay -->
+
+    <main class="pt-[72px]">
+
+        <!-- ── Hero ── -->
+        <section class="relative min-h-[88vh] flex items-center px-6 md:px-16 overflow-hidden">
+            <!-- Background -->
             <div class="absolute inset-0 z-0">
                 <img alt="Artisan Glass" class="w-full h-full object-cover"
-                    data-alt="Close-up of high-end iridescent artisan glass bong with intricate percolators, moody dark blue studio lighting, sharp reflections and soft bokeh."
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKNhaUyenD1gjm6o6574nRnksmK_9FD03349xYhJo73wdSp0A2Km_dc6emkRGhO13D2pMQ8ZajiN02wjRHLs7bKmxhk2EHFnkWpOnk2YNe3dj67Y3jlu0BaWXRUGdU8zxjT3JPTdm9Q5Ot7masY74SEsIT63LTM7l9jwbx9KySXfzdcxtDVjD-hzX2aSpGPEZVi_VpRo27errPwOOKUdVl2a3tTaNBIoc64cXq1_NmReiz6IG714WMFyeMn7p00fsU3wD-Fa-hJ4Q" />
-                <div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+                <!-- Dark mode overlay -->
+                <div class="absolute inset-0 dark-hero-gradient"
+                    style="background: linear-gradient(100deg, var(--bg) 35%, transparent 75%);"></div>
+                <div class="absolute inset-0"
+                    style="background: linear-gradient(to top, var(--bg) 0%, transparent 30%);"></div>
             </div>
-            <div class="relative z-10 max-w-3xl">
-                <div
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+
+            <!-- Glow accents -->
+            <div class="glow-orb w-96 h-96" style="top: 10%; left: 5%; background: var(--primary); opacity: 0.12;">
+            </div>
+            <div class="glow-orb w-64 h-64" style="bottom: 15%; left: 25%; background: #a78bfa; opacity: 0.08;"></div>
+
+            <div class="relative z-10 max-w-3xl fade-up">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-7"
+                    style="background: var(--primary-faint); border: 1px solid var(--border-hi); color: var(--primary);">
+                    <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: var(--primary);"></span>
                     Now accepting wholesale partners
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold text-on-surface tracking-tighter leading-[1.1] mb-6">
-                    Elevating the <span class="text-primary italic">Standard</span> of Glass.
+
+                <!-- Headline -->
+                <h1 class="hero-title-responsive text-5xl md:text-7xl font-bold tracking-tight leading-[1.08] mb-6"
+                    style="font-family: 'Playfair Display', serif; color: var(--text);">
+                    Elevating the<br />
+                    <em class="not-italic gradient-text">Standard</em> of Glass.
                 </h1>
-                <p class="text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed">
-                    Premium borosilicate distribution for high-volume retailers. Artisan craftsmanship meets industrial
-                    reliability.
+
+                <p class="hero-text-responsive text-lg md:text-xl mb-10 leading-relaxed max-w-xl"
+                    style="color: var(--text-2);">
+                    Premium borosilicate distribution for high-volume retailers.
+                    Artisan craftsmanship meets industrial reliability.
                 </p>
-                <div class="flex flex-wrap gap-4">
-                    <button
-                        class="px-8 py-4 bg-primary text-on-primary font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+
+                <div class="flex flex-wrap gap-3">
+                    <a href="contact.html"
+                        class="px-8 py-4 rounded-xl font-bold text-base shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                        style="background: var(--primary); color: var(--primary-on); box-shadow: var(--sh-primary);">
                         Apply for Wholesale
-                    </button>
-                    <a href="https://glasshousedistro.com/product-category/waterpipe/glass-waterpipe/"
-                        class="px-8 py-4 glass-card text-on-surface font-semibold rounded-xl border border-primary/20 hover:bg-white/5 transition-all inline-block text-center">
+                    </a>
+                    <a href="products.html"
+                        class="glass-card px-8 py-4 rounded-xl font-semibold text-base inline-block text-center transition-all"
+                        style="color: var(--text);">
                         View Catalog
                     </a>
                 </div>
-            </div>
-        </section>
-        <!-- Product Categories Bento Grid -->
-        <section class="py-24 px-8 max-w-screen-2xl mx-auto">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-3xl font-bold text-on-surface tracking-tight">Curated Categories</h2>
-                    <p class="text-on-surface-variant mt-2">Explore our most popular wholesale selections</p>
-                </div>
-                <div class="hidden md:flex gap-4">
-                    <button
-                        class="p-3 rounded-full border border-outline-variant hover:border-primary/50 text-on-surface-variant hover:text-primary transition-all">
-                        <span class="material-symbols-outlined">west</span>
-                    </button>
-                    <button
-                        class="p-3 rounded-full border border-outline-variant hover:border-primary/50 text-on-surface-variant hover:text-primary transition-all">
-                        <span class="material-symbols-outlined">east</span>
-                    </button>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-[800px] md:h-[600px]">
-                <!-- Beakers (Big) -->
-                <a href="https://glasshousedistro.com/product-category/waterpipe/glass-waterpipe/"
-                    class="md:col-span-6 glass-card rounded-3xl overflow-hidden relative group cursor-pointer border border-primary/10 hover:border-primary/30 transition-all duration-500 block">
-                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60"
-                        data-alt="Heavy scientific beaker glass water pipe with thick base, minimalist design on dark wood table with blue ambient light."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCecGwXEPIF_kkzR-6ZVtr-XDDV1Xdy2S_q9EPwTQAHzkRu9YLDUQWJggKXBG6VqYYZgTqCHOfHqdhVlr-iJZe_MeuqvM_5LNKqlOReYwDDWK-pWl9uVIUMK9EXizAYaXZZjSbJLAcDkoUjyDUDaHX40vRnnJNnFwb-gL2BPsZ4-3XdiiokxD-dYkMM-pvSWyt7U4VE0BrBhE32OzHEIFPueMPikmcIXCm1PxIhgTJurQfxLPWErA1YNCyFRVK2jQJiyHYQDHLcnYk" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
-                    <div class="absolute bottom-0 left-0 p-8">
-                        <h3 class="text-3xl font-bold text-on-surface mb-2">Beakers</h3>
-                        <p class="text-on-surface-variant mb-4">Scientific standards with extreme durability.</p>
-                        <span class="text-primary font-bold flex items-center gap-2">Explore Beakers <span
-                                class="material-symbols-outlined text-sm">arrow_forward</span></span>
-                    </div>
-                </a>
-                <!-- Recyclers (Tall) -->
-                <a href="https://glasshousedistro.com/product-category/waterpipe/"
-                    class="md:col-span-3 glass-card rounded-3xl overflow-hidden relative group cursor-pointer border border-primary/10 hover:border-primary/30 transition-all duration-500 block">
-                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-50"
-                        data-alt="Complex glass recycler with swirling inner tubes and intricate filtration mechanics, highlighted by sharp edge lighting."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2-XRQ07n39QEkKJL8Hb5qbGVKFHiJDA89UDsmcVPSwx_ITynDJ0xHt-yvhg7qJ_r9I8Co0fLSmk8aWlidmqGsDWpoq8APe6aPjtx0IcelFM7TW2zrhzsVEeTJmiDItS5at4m4ZCz1QzsWlPYa1thEL49ezXw3j3IzgFjOeLKw_lwZHD_69BJ2mt0wMU7foqvBCwe7XtlC9uwWNFQli3pBk-71hmhBrisdIUt7oL4vP-_XUYxykowH88KWcrxsS7YZxA_6Aif7uZc" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <h3 class="text-2xl font-bold text-on-surface mb-1">Recyclers</h3>
-                        <p class="text-xs text-on-surface-variant mb-3 uppercase tracking-wider">Advanced Filtration</p>
-                    </div>
-                </a>
-                <!-- Pipes (Top Right) -->
-                <a href="https://glasshousedistro.com/product-category/handpipe/"
-                    class="md:col-span-3 glass-card rounded-3xl overflow-hidden relative group cursor-pointer border border-primary/10 hover:border-primary/30 transition-all duration-500 block">
-                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-50"
-                        data-alt="Collection of colorful hand-blown glass pipes with unique marble patterns, softly lit from the side on dark velvet."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjGFldUAF158suyPW-83578uWkVpEkGNDk_a9B0EhuD5716b2UYbyC-nTr3zuwhBA8dew3nQ_h7hRQ6DRfREeurtnfsiVrnFFOx4OXgc70Ehi6WyqDcHdWTDNBHrTai9uvPHQLiAWJpgc6329f_KbmPy-Ni55TBp1j9Ow61_1ILEIXmBXmT0Hlch_lkiFImy0fGxwLI97x7R7neEDv95FPENgzcA5wz0_d4eblTAKSFSNJG9f5malNxTkRbrB0PQcVNQRNgMrQLJM" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <h3 class="text-2xl font-bold text-on-surface mb-1">Pipes</h3>
-                        <p class="text-xs text-on-surface-variant mb-3 uppercase tracking-wider">Artisan Accents</p>
-                    </div>
-                </a>
-                <!-- Bulk Orders (Bottom Right) -->
-                <a href="https://glasshousedistro.com/product-category/waterpipe/"
-                    class="md:col-span-6 glass-card rounded-3xl p-8 flex flex-col justify-center border border-primary/10 hover:border-primary/30 transition-all duration-500 block">
-                    <div class="flex items-center gap-6">
-                        <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                            <span class="material-symbols-outlined text-4xl">inventory_2</span>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-on-surface">Bulk Custom Orders</h3>
-                            <p class="text-on-surface-variant mt-1">Need something specific for your brand? We offer
-                                custom OEM glass manufacturing for orders over 100 units.</p>
-                        </div>
-                        <button
-                            class="ml-auto p-4 rounded-xl bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary transition-all">
-                            <span class="material-symbols-outlined">arrow_outward</span>
-                        </button>
-                    </div>
-                </a>
-            </div>
-        </section>
-        <!-- New Arrivals Section -->
-        <section id="new-arrivals" class="py-24 px-8 bg-surface-container-low/50 relative">
-            <div class="max-w-screen-2xl mx-auto">
-                <div class="flex justify-between items-end mb-12">
+
+                <!-- Stats row -->
+                <div class="stat-stack flex flex-wrap gap-8 mt-12 pt-10" style="border-top: 1px solid var(--border);">
                     <div>
-                        <h2 class="text-3xl font-bold text-on-surface tracking-tight">New Arrivals</h2>
-                        <p class="text-on-surface-variant mt-2">Fresh inventory just landed</p>
+                        <p class="text-2xl font-bold" style="color: var(--text);">500+</p>
+                        <p class="text-sm mt-0.5" style="color: var(--text-2);">SKUs in catalog</p>
                     </div>
-                    <a href="products.html" class="text-primary font-semibold flex items-center gap-2 hover:underline">
-                        View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-                <div id="new-arrivals-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Populated by JS from data/products.js -->
-            </div>
-        </section>
-        <!-- Wholesale Products Section -->
-        <section id="products" class="py-24 px-8 max-w-screen-2xl mx-auto">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-3xl font-bold text-on-surface tracking-tight">Wholesale Products</h2>
-                    <p class="text-on-surface-variant mt-2">Top-selling glass available for bulk order</p>
-                </div>
-                <a href="products.html" class="text-primary font-semibold flex items-center gap-2 hover:underline">
-                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                </a>
-            </div>
-            <div id="wholesale-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Populated by JS from data/products.js -->
-            </div>
-        </section>
-
-        <!-- Best Sellers Section -->
-        <section id="best-sellers" class="py-24 px-8 bg-surface-container-low/50 relative">
-            <div class="max-w-screen-2xl mx-auto">
-                <div class="flex justify-between items-end mb-12">
                     <div>
-                        <h2 class="text-3xl font-bold text-on-surface tracking-tight">Best Sellers</h2>
-                        <p class="text-on-surface-variant mt-2">Our most reordered wholesale items</p>
+                        <p class="text-2xl font-bold" style="color: var(--text);">2,000+</p>
+                        <p class="text-sm mt-0.5" style="color: var(--text-2);">Retail partners</p>
                     </div>
-                    <a href="products.html" class="text-primary font-semibold flex items-center gap-2 hover:underline">
-                        View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-                <div id="best-sellers-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Populated by JS from data/products.js -->
+                    <div>
+                        <p class="text-2xl font-bold" style="color: var(--text);">0%</p>
+                        <p class="text-sm mt-0.5" style="color: var(--text-2);">Transit breakage</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Popular Products Section -->
-        <section id="popular" class="py-24 px-8 max-w-screen-2xl mx-auto">
+        <!-- ── Curated Categories ── -->
+        <section class="py-24 px-6 md:px-10 max-w-screen-2xl mx-auto">
             <div class="flex justify-between items-end mb-12">
                 <div>
-                    <h2 class="text-3xl font-bold text-on-surface tracking-tight">Popular Products</h2>
-                    <p class="text-on-surface-variant mt-2">Trending across our wholesale network</p>
-                </div>
-                <a href="products.html" class="text-primary font-semibold flex items-center gap-2 hover:underline">
-                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                </a>
-            </div>
-            <div id="popular-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Populated by JS from data/products.js -->
-            </div>
-        </section>
-
-        <!-- Value Proposition Section -->
-        <section class="py-24 relative overflow-hidden">
-            <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
-                <div class="text-center max-w-2xl mx-auto mb-20">
-                    <h2 class="text-4xl font-bold text-on-surface tracking-tight mb-4">Why Partner with Glass House?
+                    <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color: var(--primary);">
+                        Collections</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight"
+                        style="font-family:'Playfair Display',serif; color: var(--text);">
+                        Curated Categories
                     </h2>
-                    <p class="text-on-surface-variant text-lg">We bridge the gap between boutique artistry and
-                        high-volume distribution logistics.</p>
+                    <p class="mt-2" style="color: var(--text-2);">Explore our most popular wholesale selections</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <a href="https://glasshousedistro.com/product-category/waterpipe/glass-waterpipe/" target="_blank" class="glass-card p-10 rounded-[2.5rem] border border-sky-400/10 hover:border-sky-400/30 transition-all block text-center">
-                        <div class="text-sky-300 mb-6 flex justify-center">
-                            <span class="material-symbols-outlined text-5xl"
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 md:h-[580px]">
+                <!-- Beakers (large) -->
+                <a href="products.html"
+                    class="md:col-span-6 glass-card rounded-3xl overflow-hidden relative group cursor-pointer block"
+                    style="min-height: 300px;">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCecGwXEPIF_kkzR-6ZVtr-XDDV1Xdy2S_q9EPwTQAHzkRu9YLDUQWJggKXBG6VqYYZgTqCHOfHqdhVlr-iJZe_MeuqvM_5LNKqlOReYwDDWK-pWl9uVIUMK9EXizAYaXZZjSbJLAcDkoUjyDUDaHX40vRnnJNnFwb-gL2BPsZ4-3XdiiokxD-dYkMM-pvSWyt7U4VE0BrBhE32OzHEIFPueMPikmcIXCm1PxIhgTJurQfxLPWErA1YNCyFRVK2jQJiyHYQDHLcnYk"
+                        alt="Beakers" loading="lazy" />
+                    <div class="absolute inset-0"
+                        style="background: linear-gradient(to top, var(--bg) 0%, transparent 60%);"></div>
+                    <div class="absolute bottom-0 left-0 p-7">
+                        <h3 class="text-3xl font-bold mb-1"
+                            style="font-family:'Playfair Display',serif; color: var(--text);">Beakers</h3>
+                        <p class="text-sm mb-3" style="color: var(--text-2);">Scientific standards with extreme
+                            durability.</p>
+                        <span class="inline-flex items-center gap-1.5 text-sm font-bold" style="color: var(--primary);">
+                            Explore <span class="material-symbols-outlined text-base">arrow_forward</span>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Recyclers -->
+                <a href="products.html"
+                    class="md:col-span-3 glass-card rounded-3xl overflow-hidden relative group cursor-pointer block"
+                    style="min-height: 240px;">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2-XRQ07n39QEkKJL8Hb5qbGVKFHiJDA89UDsmcVPSwx_ITynDJ0xHt-yvhg7qJ_r9I8Co0fLSmk8aWlidmqGsDWpoq8APe6aPjtx0IcelFM7TW2zrhzsVEeTJmiDItS5at4m4ZCz1QzsWlPYa1thEL49ezXw3j3IzgFjOeLKw_lwZHD_69BJ2mt0wMU7foqvBCwe7XtlC9uwWNFQli3pBk-71hmhBrisdIUt7oL4vP-_XUYxykowH88KWcrxsS7YZxA_6Aif7uZc"
+                        alt="Recyclers" loading="lazy" />
+                    <div class="absolute inset-0"
+                        style="background: linear-gradient(to top, var(--bg) 0%, transparent 50%);"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-2xl font-bold mb-0.5"
+                            style="font-family:'Playfair Display',serif; color: var(--text);">Recyclers</h3>
+                        <p class="text-xs uppercase tracking-wider" style="color: var(--text-3);">Advanced Filtration
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Pipes -->
+                <a href="products.html"
+                    class="md:col-span-3 glass-card rounded-3xl overflow-hidden relative group cursor-pointer block"
+                    style="min-height: 240px;">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjGFldUAF158suyPW-83578uWkVpEkGNDk_a9B0EhuD5716b2UYbyC-nTr3zuwhBA8dew3nQ_h7hRQ6DRfREeurtnfsiVrnFFOx4OXgc70Ehi6WyqDcHdWTDNBHrTai9uvPHQLiAWJpgc6329f_KbmPy-Ni55TBp1j9Ow61_1ILEIXmBXmT0Hlch_lkiFImy0fGxwLI97x7R7neEDv95FPENgzcA5wz0_d4eblTAKSFSNJG9f5malNxTkRbrB0PQcVNQRNgMrQLJM"
+                        alt="Pipes" loading="lazy" />
+                    <div class="absolute inset-0"
+                        style="background: linear-gradient(to top, var(--bg) 0%, transparent 50%);"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-2xl font-bold mb-0.5"
+                            style="font-family:'Playfair Display',serif; color: var(--text);">Pipes</h3>
+                        <p class="text-xs uppercase tracking-wider" style="color: var(--text-3);">Artisan Accents</p>
+                    </div>
+                </a>
+
+                <!-- Bulk Orders CTA -->
+                <a href="products.html"
+                    class="md:col-span-6 glass-card rounded-3xl p-8 flex items-center gap-6 block group cursor-pointer">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all group-hover:scale-110"
+                        style="background: var(--primary-faint); border: 1px solid var(--border-hi); color: var(--primary);">
+                        <span class="material-symbols-outlined text-3xl">inventory_2</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-xl font-bold mb-1" style="color: var(--text);">Bulk Custom Orders</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--text-2);">
+                            OEM glass manufacturing for orders over 100 units. Your brand, our craft.
+                        </p>
+                    </div>
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all group-hover:scale-110"
+                        style="background: var(--primary-faint); color: var(--primary);">
+                        <span class="material-symbols-outlined">arrow_outward</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ── New Arrivals ── -->
+        <section id="new-arrivals" class="py-24 px-6 md:px-10" style="background: var(--bg-alt);">
+            <div class="max-w-screen-2xl mx-auto">
+                <div class="flex justify-between items-end mb-10">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color: var(--primary);">Just
+                            Landed</p>
+                        <h2 class="text-3xl font-bold tracking-tight"
+                            style="font-family:'Playfair Display',serif; color: var(--text);">New Arrivals</h2>
+                        <p class="mt-1.5 text-sm" style="color: var(--text-2);">Fresh inventory this week</p>
+                    </div>
+                    <a href="products.html"
+                        class="flex items-center gap-1.5 text-sm font-semibold transition-all hover:gap-2.5"
+                        style="color: var(--primary);">
+                        View All <span class="material-symbols-outlined text-base">arrow_forward</span>
+                    </a>
+                </div>
+                <div id="new-arrivals-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+            </div>
+        </section>
+
+        <!-- ── Wholesale Products ── -->
+        <section id="products" class="py-24 px-6 md:px-10 max-w-screen-2xl mx-auto">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color: var(--primary);">Wholesale
+                    </p>
+                    <h2 class="text-3xl font-bold tracking-tight"
+                        style="font-family:'Playfair Display',serif; color: var(--text);">Top Products</h2>
+                    <p class="mt-1.5 text-sm" style="color: var(--text-2);">Best-selling glass available for bulk order
+                    </p>
+                </div>
+                <a href="products.html"
+                    class="flex items-center gap-1.5 text-sm font-semibold transition-all hover:gap-2.5"
+                    style="color: var(--primary);">
+                    View All <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+            </div>
+            <div id="wholesale-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5"></div>
+        </section>
+
+        <!-- ── Best Sellers ── -->
+        <section id="best-sellers" class="py-24 px-6 md:px-10" style="background: var(--bg-alt);">
+            <div class="max-w-screen-2xl mx-auto">
+                <div class="flex justify-between items-end mb-10">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color: var(--primary);">Top
+                            Picks</p>
+                        <h2 class="text-3xl font-bold tracking-tight"
+                            style="font-family:'Playfair Display',serif; color: var(--text);">Best Sellers</h2>
+                        <p class="mt-1.5 text-sm" style="color: var(--text-2);">Most reordered wholesale items</p>
+                    </div>
+                    <a href="products.html"
+                        class="flex items-center gap-1.5 text-sm font-semibold transition-all hover:gap-2.5"
+                        style="color: var(--primary);">
+                        View All <span class="material-symbols-outlined text-base">arrow_forward</span>
+                    </a>
+                </div>
+                <div id="best-sellers-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+            </div>
+        </section>
+
+        <!-- ── Popular Products ── -->
+        <section id="popular" class="py-24 px-6 md:px-10 max-w-screen-2xl mx-auto">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color: var(--primary);">Trending
+                    </p>
+                    <h2 class="text-3xl font-bold tracking-tight"
+                        style="font-family:'Playfair Display',serif; color: var(--text);">Popular Products</h2>
+                    <p class="mt-1.5 text-sm" style="color: var(--text-2);">Trending across our wholesale network</p>
+                </div>
+                <a href="products.html"
+                    class="flex items-center gap-1.5 text-sm font-semibold transition-all hover:gap-2.5"
+                    style="color: var(--primary);">
+                    View All <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+            </div>
+            <div id="popular-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5"></div>
+        </section>
+
+        <!-- ── Value Props ── -->
+        <section class="py-28 relative overflow-hidden" style="background: var(--bg-alt);">
+            <div class="glow-orb w-[500px] h-[500px]"
+                style="top: 50%; left: 50%; transform: translate(-50%,-50%); background: var(--primary);"></div>
+            <div class="max-w-screen-2xl mx-auto px-6 md:px-10 relative z-10">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--primary);">Why Us
+                    </p>
+                    <h2 class="text-4xl font-bold tracking-tight mb-4"
+                        style="font-family:'Playfair Display',serif; color: var(--text);">
+                        Why Partner with Glass House?
+                    </h2>
+                    <p class="text-base leading-relaxed" style="color: var(--text-2);">
+                        We bridge boutique artistry with high-volume distribution logistics.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-9 rounded-[2rem] text-center">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6"
+                            style="background: var(--primary-faint); color: var(--primary);">
+                            <span class="material-symbols-outlined text-3xl"
                                 style="font-variation-settings: 'FILL' 1;">verified</span>
                         </div>
-                        <h4 class="text-xl font-bold text-on-surface mb-4">Verified Quality</h4>
-                        <p class="text-on-surface-variant leading-relaxed">Each piece undergoes a rigorous
-                            stress-testing protocol to ensure thick borosilicate integrity and defect-free percolation.
+                        <h4 class="text-lg font-bold mb-3" style="color: var(--text);">Verified Quality</h4>
+                        <p class="text-sm leading-relaxed" style="color: var(--text-2);">
+                            Each piece undergoes rigorous stress-testing to ensure thick borosilicate integrity and
+                            defect-free percolation.
                         </p>
-                    </a>
-                    <a href="https://glasshousedistro.com/product-category/waterpipe/" target="_blank" class="glass-card-elevated p-10 rounded-[2.5rem] border border-sky-400/20 scale-105 shadow-[0_0_50px_rgba(125,211,252,0.1)] block text-center">
-                        <div class="text-sky-300 mb-6 flex justify-center">
-                            <span class="material-symbols-outlined text-5xl"
+                    </div>
+
+                    <div class="glass-card-elevated p-9 rounded-[2rem] text-center scale-[1.03]"
+                        style="box-shadow: 0 0 40px var(--primary-glow), var(--sh-lg);">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6"
+                            style="background: var(--primary-faint); color: var(--primary);">
+                            <span class="material-symbols-outlined text-3xl"
                                 style="font-variation-settings: 'FILL' 1;">local_shipping</span>
                         </div>
-                        <h4 class="text-xl font-bold text-on-surface mb-4">Secure Logistics</h4>
-                        <p class="text-on-surface-variant leading-relaxed">Proprietary foam-molded packaging systems
-                            ensure zero breakage during transit. Fully insured door-to-door delivery.</p>
-                    </a>
-                    <a href="https://glasshousedistro.com/product-category/waterpipe/" target="_blank" class="glass-card p-10 rounded-[2.5rem] border border-sky-400/10 hover:border-sky-400/30 transition-all block text-center">
-                        <div class="text-sky-300 mb-6 flex justify-center">
-                            <span class="material-symbols-outlined text-5xl"
+                        <h4 class="text-lg font-bold mb-3" style="color: var(--text);">Secure Logistics</h4>
+                        <p class="text-sm leading-relaxed" style="color: var(--text-2);">
+                            Proprietary foam-molded packaging ensures zero breakage in transit. Fully insured
+                            door-to-door delivery.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-9 rounded-[2rem] text-center">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6"
+                            style="background: var(--primary-faint); color: var(--primary);">
+                            <span class="material-symbols-outlined text-3xl"
                                 style="font-variation-settings: 'FILL' 1;">monitoring</span>
                         </div>
-                        <h4 class="text-xl font-bold text-on-surface mb-4">B2B Scalability</h4>
-                        <p class="text-on-surface-variant leading-relaxed">Real-time inventory sync and dedicated
-                            account managers to help forecast your stock needs and seasonal spikes.</p>
-                    </a>
-                </div>
-            </div>
-            <!-- Decorative Glow -->
-            <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none">
-            </div>
-        </section>
-        <!-- CTA Section -->
-        <section class="py-32 px-8 max-w-screen-2xl mx-auto">
-            <div
-                class="glass-card p-12 md:p-24 rounded-[3rem] border border-primary/20 relative overflow-hidden text-center">
-                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
-                <h2 class="text-4xl md:text-6xl font-extrabold text-on-surface tracking-tighter mb-8 leading-tight">
-                    Ready to Stock the <br /><span class="text-primary">Best Glass</span> in the Industry?
-                </h2>
-                <p class="text-xl text-on-surface-variant max-w-2xl mx-auto mb-12">
-                    Our wholesale partners receive exclusive pricing, early access to limited artisan drops, and tiered
-                    volume discounts.
-                </p>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-                    <button
-                        class="w-full md:w-auto px-12 py-5 bg-primary text-on-primary font-bold rounded-2xl text-lg hover:scale-[1.03] transition-all shadow-xl shadow-primary/20">
-                        Start Your Application
-                    </button>
-                    <a href="https://glasshousedistro.com/product-category/waterpipe/glass-waterpipe/" target="_blank"
-                        class="w-full md:w-auto px-12 py-5 border border-outline text-on-surface font-bold rounded-2xl text-lg hover:bg-surface-container transition-all inline-block">
-                        Download Price List
-                    </a>
+                        <h4 class="text-lg font-bold mb-3" style="color: var(--text);">B2B Scalability</h4>
+                        <p class="text-sm leading-relaxed" style="color: var(--text-2);">
+                            Real-time inventory sync and dedicated account managers to help forecast your stock needs.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- ── CTA ── -->
+        <section class="py-28 px-6 md:px-10 max-w-screen-2xl mx-auto">
+            <div class="glass-card p-12 md:p-20 rounded-[2.5rem] relative overflow-hidden text-center"
+                style="border-color: var(--border-hi); box-shadow: 0 0 60px var(--primary-glow), var(--sh-xl);">
+                <div class="glow-orb w-80 h-80" style="top:-20%; right:-5%; background: #a78bfa;"></div>
+                <div class="glow-orb w-80 h-80" style="bottom:-20%; left:-5%; background: var(--primary);"></div>
+                <div class="relative z-10">
+                    <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight"
+                        style="font-family:'Playfair Display',serif; color: var(--text);">
+                        Ready to Stock the<br />
+                        <span class="gradient-text">Best Glass</span> in the Industry?
+                    </h2>
+                    <p class="text-lg leading-relaxed max-w-2xl mx-auto mb-10" style="color: var(--text-2);">
+                        Wholesale partners receive exclusive pricing, early access to artisan drops, and tiered volume
+                        discounts.
+                    </p>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                        <a href="contact.html"
+                            class="w-full md:w-auto px-12 py-5 rounded-2xl text-lg font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
+                            style="background: var(--primary); color: var(--primary-on); box-shadow: var(--sh-primary);">
+                            Start Your Application
+                        </a>
+                        <a href="products.html"
+                            class="w-full md:w-auto px-12 py-5 rounded-2xl text-lg font-semibold transition-all inline-block glass-card"
+                            style="color: var(--text);">
+                            Download Price List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-900 w-full py-12">
-        <div
-            class="flex flex-col md:flex-row justify-between items-center px-12 w-full max-w-screen-2xl mx-auto font-inter text-xs text-slate-500">
-            <div class="flex flex-col items-center md:items-start gap-4">
-                <a href="https://glasshousedistro.com/" class="text-lg font-bold text-slate-300">Glass House</a>
-                <p>© 2024 Glass House Distro. Wholesale Only.</p>
-            </div>
-            <div class="flex gap-8 my-8 md:my-0">
-                <a class="hover:text-sky-300 transition-colors" href="terms.html">Terms of Service</a>
-                <a class="hover:text-sky-300 transition-colors" href="shipping.html">Shipping Policy</a>
-                <a class="hover:text-sky-300 transition-colors" href="compliance.html">Compliance</a>
-                <a class="hover:text-sky-300 transition-colors" href="contact.html">Contact Us</a>
-            </div>
-            <div class="flex gap-6">
-                <a class="hover:text-sky-300 transition-all" href="https://glasshousedistro.com/" target="_blank"><span
-                        class="material-symbols-outlined">public</span></a>
-                <a class="hover:text-sky-300 transition-all" href="mailto:glasshousedistributors@gmail.com"><span
-                        class="material-symbols-outlined">mail</span></a>
-                <a class="hover:text-sky-300 transition-all" href="tel:+12124708424"><span
-                        class="material-symbols-outlined">share</span></a>
+
+    <!-- ── Footer ── -->
+    <footer class="site-footer border-t w-full py-14">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex items-center gap-2.5 mb-4">
+                        <span class="w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold"
+                            style="background: var(--primary-faint); border: 1px solid var(--border-hi); color: var(--primary);">GH</span>
+                        <span class="text-lg font-bold" style="color: var(--text);">Glass House Distro</span>
+                    </a>
+                    <p class="text-sm leading-relaxed max-w-xs" style="color: var(--text-2);">
+                        Premium borosilicate wholesale distribution. Serving high-volume retailers across North America.
+                    </p>
+                    <p class="text-xs mt-4" style="color: var(--text-3);">© 2025 Glass House Distro. Wholesale Only.</p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color: var(--text-3);">Company
+                    </p>
+                    <div class="flex flex-col gap-2.5">
+                        <a href="products.html" class="text-sm transition-colors hover:text-[var(--primary)]"
+                            style="color: var(--text-2);">Product Catalog</a>
+                        <a href="contact.html" class="text-sm transition-colors hover:text-[var(--primary)]"
+                            style="color: var(--text-2);">Contact Sales</a>
+                        <a href="shipping.html" class="text-sm transition-colors hover:text-[var(--primary)]"
+                            style="color: var(--text-2);">Shipping Policy</a>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color: var(--text-3);">Legal</p>
+                    <div class="flex flex-col gap-2.5">
+                        <a href="terms.html" class="text-sm transition-colors hover:text-[var(--primary)]"
+                            style="color: var(--text-2);">Terms of Service</a>
+                        <a href="compliance.html" class="text-sm transition-colors hover:text-[var(--primary)]"
+                            style="color: var(--text-2);">Compliance</a>
+                    </div>
+                    <div class="flex gap-3 mt-6">
+                        <a href="mailto:glasshousedistributors@gmail.com"
+                            class="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                            style="background: var(--primary-faint); border: 1px solid var(--border); color: var(--primary);">
+                            <span class="material-symbols-outlined text-base">mail</span>
+                        </a>
+                        <a href="tel:+12124708424"
+                            class="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                            style="background: var(--primary-faint); border: 1px solid var(--border); color: var(--primary);">
+                            <span class="material-symbols-outlined text-base">phone</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
-    <!-- FAB -->
-    <div class="fixed bottom-8 right-8 z-50">
-        <a href="https://glasshousedistro.com/my-account/" target="_blank"
-            class="w-16 h-16 rounded-full bg-primary text-on-primary shadow-2xl shadow-primary/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+
+    <!-- FAB: Order Dashboard -->
+    <div class="chat-fab-wrapper fixed bottom-8 right-8 z-50">
+        <a href="orderdash.html"
+            class="chat-fab-link w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110 active:scale-95"
+            style="background: var(--primary); color: var(--primary-on); box-shadow: var(--sh-primary);"
+            title="Order Dashboard">
             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
         </a>
     </div>
 
     <script>
-    // ── Populate homepage product grids from window.PRODUCTS ──────────────────
-    (function () {
-        function homeCard(product) {
-            return `<a href="products/${product.slug}.html"
-                class="product-card glass-card rounded-2xl overflow-hidden border border-primary/10 transition-all duration-300 block"
-                style="text-decoration:none;">
-                <div class="aspect-square overflow-hidden relative" style="background:#0f1524;">
-                    <img class="product-image absolute inset-0 w-full h-full object-cover transition-transform duration-500"
-                        src="${product.image}"
-                        alt="${product.name}"
-                        loading="lazy"
-                        onerror="this.style.opacity='0.3'" />
-                    <div class="view-details absolute inset-0 flex items-center justify-center"
-                         style="background:rgba(0,0,0,0.5);opacity:0;transition:opacity 0.3s;">
-                        <span class="px-4 py-2 rounded-lg font-semibold text-sm"
-                              style="background:#7dd3fc;color:#001f2e;">View Details</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <p class="text-xs uppercase tracking-wider mb-2" style="color:#7dd3fc;">${product.category}</p>
-                    <h3 class="text-lg font-semibold mb-2 line-clamp-2" style="color:#e0e8f0;">${product.name}</h3>
-                    <p class="text-sm" style="color:#a0b4c4;">Login to see prices</p>
-                </div>
-            </a>`;
-        }
+            (function () {
+                function homeCard(product) {
+                    return `<a href="products/${product.slug}.html"
+          class="product-card glass-card rounded-2xl overflow-hidden block"
+          style="text-decoration:none; border-color: var(--border);">
+          <div class="aspect-square overflow-hidden relative" style="background: var(--surface-hi);">
+            <img class="product-image absolute inset-0 w-full h-full object-cover transition-transform duration-500"
+              src="${product.image}" alt="${product.name}" loading="lazy"
+              onerror="this.style.opacity='0.3'" />
+            <div class="view-details absolute inset-0 flex items-center justify-center"
+               style="background:rgba(0,0,0,0.45); opacity:0; transition:opacity 0.25s;">
+              <span class="px-4 py-2 rounded-lg font-bold text-sm"
+                    style="background:var(--primary); color:var(--primary-on);">View Details</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-xs font-bold uppercase tracking-wider mb-1.5" style="color:var(--primary);">${product.category}</p>
+            <h3 class="text-base font-semibold mb-2 line-clamp-2 leading-snug" style="color:var(--text);">${product.name}</h3>
+            <p class="text-sm" style="color:var(--text-2);">Login to see prices</p>
+          </div>
+        </a>`;
+                }
 
-        function fillGrid(id, products) {
-            const el = document.getElementById(id);
-            if (el) el.innerHTML = products.map(homeCard).join('');
-        }
+                function fillGrid(id, products) {
+                    var el = document.getElementById(id);
+                    if (el) el.innerHTML = products.map(homeCard).join('');
+                }
 
-        // Add hover effect for view-details overlay
-        document.addEventListener('mouseover', (e) => {
-            const card = e.target.closest('.product-card');
-            if (card) {
-                const overlay = card.querySelector('.view-details');
-                if (overlay) overlay.style.opacity = '1';
-            }
-        });
-        document.addEventListener('mouseout', (e) => {
-            const card = e.target.closest('.product-card');
-            if (card) {
-                const overlay = card.querySelector('.view-details');
-                if (overlay) overlay.style.opacity = '0';
-            }
-        });
+                document.addEventListener('DOMContentLoaded', function () {
+                    var navToggle = document.getElementById('mobile-nav-toggle');
+                    var navPanel = document.getElementById('mobile-nav-panel');
+                    var navIcon = document.getElementById('mobile-nav-icon');
 
-        document.addEventListener('DOMContentLoaded', function () {
-            if (!window.PRODUCTS) return;
-            fillGrid('new-arrivals-grid', window.PRODUCTS.slice(0, 4));
-            fillGrid('wholesale-grid', window.PRODUCTS.slice(4, 12));
-            fillGrid('best-sellers-grid', window.PRODUCTS.slice(12, 16));
-            fillGrid('popular-grid', window.PRODUCTS.slice(16, 24));
-        });
-    })();
+                    function closeMobileMenu() {
+                        if (!navPanel || !navToggle) return;
+                        navPanel.classList.remove('open');
+                        navPanel.setAttribute('aria-hidden', 'true');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        if (navIcon) navIcon.textContent = 'menu';
+                    }
+
+                    if (navToggle && navPanel) {
+                        navToggle.addEventListener('click', function () {
+                            var willOpen = !navPanel.classList.contains('open');
+                            navPanel.classList.toggle('open', willOpen);
+                            navPanel.setAttribute('aria-hidden', willOpen ? 'false' : 'true');
+                            navToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+                            if (navIcon) navIcon.textContent = willOpen ? 'close' : 'menu';
+                        });
+
+                        navPanel.querySelectorAll('a').forEach(function (link) {
+                            link.addEventListener('click', closeMobileMenu);
+                        });
+
+                        document.addEventListener('click', function (event) {
+                            if (!navPanel.contains(event.target) && !navToggle.contains(event.target)) closeMobileMenu();
+                        });
+                    }
+
+                    if (!window.PRODUCTS) return;
+                    fillGrid('new-arrivals-grid', window.PRODUCTS.slice(0, 4));
+                    fillGrid('wholesale-grid', window.PRODUCTS.slice(4, 12));
+                    fillGrid('best-sellers-grid', window.PRODUCTS.slice(12, 16));
+                    fillGrid('popular-grid', window.PRODUCTS.slice(16, 24));
+                });
+            })();
     </script>
 </body>
 
